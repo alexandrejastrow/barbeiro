@@ -85,7 +85,6 @@ func main() {
 	}
 
 	numGoRout := nCadeiras + nClientes
-	var wg sync.WaitGroup
 
 	var chCadeiras = make(chan int, int(nCadeiras))
 	var barbeiroCadeira = []chan int{}
@@ -98,8 +97,6 @@ func main() {
 	var msg = make(chan string, nBarbeiros)
 
 	escritor <- 1
-
-	wg.Add(nBarbeiros)
 
 	for i = 0; i < nBarbeiros; i++ {
 
